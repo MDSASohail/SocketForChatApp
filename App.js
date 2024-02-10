@@ -2,13 +2,17 @@ const socket=require('socket.io');
 const io=require('socket.io')(8001,{
 
     cors: {
-        // origin: "https://mdsasohail.github.io",
-        // origin:'http://localhost:3000',
-        origin:'*',
-        methods: ["GET", "POST"]
-      }
+        origin: "https://mdsasohail.github.io",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
+    }
+});
 
-})
+io.use((socket, next) => {
+    socket.handshake.headers.origin = "https://mdsasohail.github.io";
+    next();
+});
 
 
 //storing all the login users

@@ -1,0 +1,6 @@
+{
+    "version": 2,
+    "name": "SocketForSocialMedia",
+    "builds": [{ "src": "App.js", "use": "@vercel/node" }],
+    "routes": [{ "src": "/(.*)", "dest": "/App.js" }]
+  }
