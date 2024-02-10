@@ -4,8 +4,7 @@ const io=require('socket.io')(8001,{
     cors: {
         origin: "https://mdsasohail.github.io",
         methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["my-custom-header"],
-        credentials: true
+        
     }
 });
 
