@@ -1,4 +1,5 @@
 const socket=require('socket.io');
+const cors=require('cors');
 const io=require('socket.io')(8001,{
 
     cors: {
@@ -12,7 +13,7 @@ io.use((socket, next) => {
     socket.handshake.headers.origin = "*";
     next();
 });
-
+io.use(cors())
 
 //storing all the login users
 let users=[];
