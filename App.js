@@ -3,16 +3,20 @@ const cors=require('cors');
 const io=require('socket.io')(8001,{
 
     cors: {
-        origin: "*",
-        methods: ["GET", "POST", "PUT", "DELETE"],
+        origins: ["*"],
+        handlePreflightRequest:(req,res)=>{
+            res.writeHead(200,{
+                "Access-Control-Allow-Origin":"*",
+                "Access-Control-Allow-Methods":"GET,POST",
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                "Access-Control-Allow-Credentials":true
+            })
+        }
+        
         
     }
 });
 
-io.use((socket, next) => {
-    socket.handshake.headers.origin = "*";
-    next();
-});
 io.use(cors())
 
 //storing all the login users
