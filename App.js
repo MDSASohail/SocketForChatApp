@@ -2,14 +2,14 @@ const socket=require('socket.io');
 const io=require('socket.io')(8001,{
 
     cors: {
-        origin: "https://mdsasohail.github.io",
+        origin: "*",
         methods: ["GET", "POST", "PUT", "DELETE"],
         
     }
 });
 
 io.use((socket, next) => {
-    socket.handshake.headers.origin = "https://mdsasohail.github.io";
+    socket.handshake.headers.origin = "*";
     next();
 });
 
