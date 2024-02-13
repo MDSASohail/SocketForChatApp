@@ -6,7 +6,7 @@ const io=require('socket.io')(8001,{
         origins: ["*"],
         handlePreflightRequest:(req,res)=>{
             res.writeHead(200,{
-                "Access-Control-Allow-Origin":"*",
+                "Access-Control-Allow-Origin":"https://socket-for-chat-app.vercel.app/",
                 "Access-Control-Allow-Methods":"GET,POST",
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 "Access-Control-Allow-Credentials":true
